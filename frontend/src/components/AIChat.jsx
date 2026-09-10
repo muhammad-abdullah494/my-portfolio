@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Sparkles, X, Send, Loader2 } from 'lucide-react';
 
 /* Today: local backend. At deployment we set VITE_API_URL once — this line picks it up automatically. */
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000' : 'https://my-portfolio-api.vercel.app';
 
 const suggestions = [
   'What is Studiction?',
