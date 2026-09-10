@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy-950 text-text-primary font-sans antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020617;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}
+
+/* ============================================================
+   LIGHT THEME OVERRIDE LAYER
+   One class on <html> (.light) restyles the whole site.
+   ============================================================ */
+.light body {
+  background-color: #f7f7f5;
+  color: #111827;
+}
+
+.light .bg-navy-950 { background-color: #f7f7f5; }
+.light .bg-navy-950\/95 { background-color: rgb(247 247 245 / 0.95); }
+.light .bg-navy-950\/90 { background-color: rgb(247 247 245 / 0.9); }
+.light .bg-navy-950\/80 { background-color: rgb(247 247 245 / 0.8); }
+
+.light .text-text-primary { color: #111827; }
+.light .text-text-secondary { color: #4b5563; }
+.light .text-text-primary\/90 { color: rgb(17 24 39 / 0.9); }
+.light .text-text-secondary\/70 { color: rgb(75 85 99 / 0.7); }
+.light .text-text-secondary\/60 { color: rgb(75 85 99 / 0.6); }
+.light .text-text-secondary\/50 { color: rgb(75 85 99 / 0.5); }
+.light .text-text-secondary\/40 { color: rgb(75 85 99 / 0.4); }
+.light .text-text-secondary\/20 { color: rgb(75 85 99 / 0.25); }
+
+.light .border-white\/5 { border-color: rgb(17 24 39 / 0.07); }
+.light .border-white\/10 { border-color: rgb(17 24 39 / 0.12); }
+.light .border-white\/20 { border-color: rgb(17 24 39 / 0.2); }
+.light .border-white\/25 { border-color: rgb(17 24 39 / 0.25); }
+.light .border-white\/30 { border-color: rgb(17 24 39 / 0.3); }
+
+.light .bg-white\/5 { background-color: rgb(17 24 39 / 0.05); }
+.light .bg-white\/10 { background-color: rgb(17 24 39 / 0.08); }
+.light .bg-white\/\[0\.02\] { background-color: rgb(17 24 39 / 0.02); }
+.light .bg-white\/\[0\.03\] { background-color: rgb(17 24 39 / 0.04); }
+.light .bg-white\/\[0\.04\] { background-color: rgb(17 24 39 / 0.05); }
+
+.light .hover\:bg-white\/10:hover { background-color: rgb(17 24 39 / 0.08); }
+.light .hover\:bg-white\/5:hover { background-color: rgb(17 24 39 / 0.05); }
+.light .hover\:text-text-primary:hover { color: #111827; }
+.light .hover\:border-white:hover { border-color: #111827; }
+
+.light .text-accent-400 { color: #2563eb; }
+.light .text-blue-400 { color: #1d4ed8; }
+.light .bg-blue-400 { background-color: #1d4ed8; }
+.light .bg-blue-400\/60 { background-color: rgb(29 78 216 / 0.6); }
+.light .from-navy-950 { display: none; }
+
+.light ::-webkit-scrollbar-track { background: #f7f7f5; }
+.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+
+/* Display font for editorial titles */
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+/* Editorial reading serif for every paragraph (book-like feel) */
+p {
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+p, li {
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Force blue labels to win in BOTH modes - bulletproof safety net */
+.text-blue-400 {
+  color: #60a5fa !important;
+}
+.light .text-blue-400 {
+  color: #1d4ed8 !important;
+}
+
+/* Force blue backgrounds to win too */
+.bg-blue-400 {
+  background-color: #60a5fa !important;
+}
+.light .bg-blue-400 {
+  background-color: #1d4ed8 !important;
+}
+
+/* Landing entrance: hero elements cascade in once, from the first pixel (no flash) */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.enter {
+  opacity: 0;
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.enter-1 { animation-delay: 0.05s; }
+.enter-2 { animation-delay: 0.15s; }
+.enter-3 { animation-delay: 0.25s; }
+.enter-4 { animation-delay: 0.35s; }
+.enter-5 { animation-delay: 0.45s; }
+.enter-6 { animation-delay: 0.55s; }
+
+/* Clean blue outline for keyboard navigation (accessibility) */
+:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   BATCH C — DEPTH & LIGHT-MODE COMPLETENESS PASS
+   ============================================================ */
+
+/* 1) Light-mode contrast: make every hairline & ring visible on paper */
+.light .border-text-primary\/30 { border-color: rgb(17 24 39 / 0.35); }
+.light .hover\:border-text-primary:hover { border-color: #111827; }
+.light .hover\:border-text-secondary\/30:hover { border-color: rgb(75 85 99 / 0.45); }
+.light .border-white\/15 { border-color: rgb(17 24 39 / 0.18); }
+.light .hover\:border-white\/40:hover { border-color: rgb(17 24 39 / 0.45); }
+.light .group:hover .group-hover\:border-white\/20 { border-color: rgb(17 24 39 / 0.25); }
+.light .group:hover .group-hover\:border-white\/30 { border-color: rgb(17 24 39 / 0.35); }
+.light .border-accent-400 { border-color: #2563eb; }
+.light .focus\:border-blue-400:focus { border-color: #2563eb; }
+.light .bg-text-secondary\/50 { background-color: rgb(75 85 99 / 0.5); }
+.light .disabled\:bg-white\/10:disabled { background-color: rgb(17 24 39 / 0.08); }
+.light .placeholder\:text-text-secondary\/50::placeholder { color: rgb(107 114 128 / 0.75); }
+.light :focus-visible { outline-color: #2563eb; }
+
+
+/* ============================================================
+   LIGHT-MODE GHOST-TEXT VACCINE
+   Any "white clothes" text becomes readable on light paper.
+   ============================================================ */
+.light .text-white { color: #111827; }
+.light .text-white\/90 { color: rgb(17 24 39 / 0.9); }
+.light .text-white\/80 { color: rgb(17 24 39 / 0.8); }
+.light .text-white\/70 { color: rgb(17 24 39 / 0.7); }
+.light .text-white\/60 { color: rgb(17 24 39 / 0.65); }
+.light .text-white\/50 { color: rgb(17 24 39 / 0.6); }
+.light .text-white\/40 { color: rgb(17 24 39 / 0.5); }
+
+.light .text-text-primary\/70 { color: rgb(17 24 39 / 0.72); }
+.light .text-text-primary\/60 { color: rgb(17 24 39 / 0.65); }
+.light .text-text-primary\/50 { color: rgb(17 24 39 / 0.6); }
+.light .text-text-primary\/40 { color: rgb(17 24 39 / 0.5); }
+
+.light .text-text-secondary\/80 { color: rgb(75 85 99 / 0.85); }
+.light .text-text-secondary\/75 { color: rgb(75 85 99 / 0.8); }
+.light .text-text-secondary\/65 { color: rgb(75 85 99 / 0.7); }
+.light .text-text-secondary\/30 { color: rgb(75 85 99 / 0.35); }
+
+/* Page-level landing fade: the whole website breathes in */
+@keyframes pageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.page-enter {
+  animation: pageIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* 2) Tactile hover: project images lift like real objects (mouse devices only) */
+@media (hover: hover) {
+  .cursor-zoom-in {
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+  }
+  .group:hover .cursor-zoom-in {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.55);
+  }
+  .light .group:hover .cursor-zoom-in {
+    box-shadow: 0 24px 48px -24px rgb(17 24 39 / 0.25);
+  }
+}
+
+/* 3) Ambient studio light behind the hero (dark mode only) */
+#home {
+  background: radial-gradient(600px 420px at 85% 18%, rgb(59 130 246 / 0.1), transparent 70%);
+}
+.light #home {
+  background: none;
+}
+
+/* Fallback for the Times-like serif class used in the case study */
+.font-times-roman {
+  font-family: 'Source Serif 4', 'Times New Roman', Georgia, serif;
+}
+.light .text-text-primary\/80 { color: rgb(17 24 39 / 0.82); }
