@@ -51,6 +51,12 @@ app.use((req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Backend server running on http://localhost:${PORT}`);
-});
+// Local development vs Vercel production
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`✅ Backend server running on http://localhost:${PORT}`);
+  });
+}
+
+// Export the app for Vercel
+module.exports = app;;
