@@ -37,7 +37,7 @@ export default function Navbar() {
       {/* CENTER: pill navigation */}
       <nav
         aria-label="Primary"
-        className="absolute left-1/2 top-4 -translate-x-1/2 pointer-events-auto flex items-center gap-1 rounded-full border-2 border-white/25 bg-black p-1.5 shadow-xl shadow-black/30"
+        className="always-dark absolute left-1/2 top-4 -translate-x-1/2 pointer-events-auto flex items-center gap-1 rounded-full border-2 border-white/25 bg-black p-1.5 shadow-xl shadow-black/30"
       >
         {links.map(({ id, label, icon: Icon }) => {
           const isActive = active === id;
@@ -66,7 +66,7 @@ export default function Navbar() {
       <a
         href="#home"
         aria-label="Back to top"
-        className="absolute left-4 md:left-8 top-4 pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/25 bg-black text-sm font-bold text-white shadow-xl shadow-black/30 transition-transform hover:scale-105"
+        className="always-dark absolute left-4 md:left-8 top-4 pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border-2 border-white/25 bg-black text-sm font-bold text-white shadow-xl shadow-black/30 transition-transform hover:scale-105"
       >
         MA
       </a>
