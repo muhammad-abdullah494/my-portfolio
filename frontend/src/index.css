@@ -226,10 +226,12 @@ p, li {
   font-family: 'Source Serif 4', 'Times New Roman', Georgia, serif;
 }
 .light .text-text-primary\/80 { color: rgb(17 24 39 / 0.82); }
+
 /* ============================================================
    ALWAYS-DARK ZONES: navbar pill and MA badge stay readable
    in both modes (black background, white text, always).
    ============================================================ */
+.always-dark.text-white,
 .always-dark .text-white,
 .always-dark .text-white\/80 {
   color: white !important;
