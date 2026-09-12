@@ -23,11 +23,11 @@ const portfolioContext = {
       summary: 'Local network file sharing application with a responsive interface and practical full-stack development.',
       github: 'https://github.com/muhammad-abdullah494/NearDrop',
     },
-    {
-      name: 'E-Commerce Website',
-      label: 'Frontend project',
-      summary: 'Responsive e-commerce website interface built with React, Tailwind CSS and Bootstrap.',
-      live: 'https://www.malltun.com/',
+        {
+      name: 'Meridian Clinic Management System',
+      label: 'Full-Stack MERN Project',
+      summary: 'Full-stack clinic management platform with JWT auth (admin/doctor/patient roles), appointment booking with real-time conflict detection, billing/invoicing, and admin analytics dashboard. Frontend built with React, Three.js (React Three Fiber), Framer Motion and Tailwind CSS. Designed and implemented end-to-end.',
+      github: 'https://github.com/muhammad-abdullah494/clinic-management-system',
     },
     {
       name: 'CYBIT_SOL Admin Dashboard',

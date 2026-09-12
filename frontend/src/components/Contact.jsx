@@ -37,10 +37,13 @@ export default function Contact() {
         </div>
 
         <div className="lg:col-span-5 space-y-6 lg:border-l lg:border-white/10 lg:pl-12">
+          {/* Box 1: Location */}
           <div>
             <p className="text-sm uppercase tracking-widest text-blue-400 mb-2">Location</p>
             <p className="text-lg text-text-primary">{personalInfo.location}</p>
           </div>
+
+          {/* Box 2: Status */}
           <div>
             <p className="text-sm uppercase tracking-widest text-blue-400 mb-2">Status</p>
             <p className="text-lg text-text-primary flex items-center gap-2">
@@ -49,6 +52,14 @@ export default function Contact() {
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
               Available for new opportunities
+            </p>
+          </div>
+
+          {/* Box 3: Education — its OWN box, below Status */}
+          <div>
+            <p className="text-sm uppercase tracking-widest text-blue-400 mb-2">Education</p>
+            <p className="text-lg text-text-primary">
+              BS Computer Science — Khushal Khan Khattak University, Karak
             </p>
           </div>
         </div>

@@ -62,7 +62,8 @@ export default function Navbar() {
         })}
       </nav>
 
-      {/* RIGHT: monogram circle = back to top */}
+            {/* RIGHT: the monogram circle — same badge, now carrying your photo */}
+            {/* RIGHT: monogram circle = back to top */}
       <a
         href="#home"
         aria-label="Back to top"

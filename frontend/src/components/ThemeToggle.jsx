@@ -1,50 +1,48 @@
 import { useEffect, useState } from 'react';
-import { Sun, Moon, Sparkles } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 
+/* Compact labeled pill toggle: moon only (no star), knob slides, choice remembered. */
 export default function ThemeToggle() {
-  // Read saved choice once (Concept 4)
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'night');
 
-  // Apply the single class to <html> (Concept 3)
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'light') root.classList.add('light');
-    else root.classList.remove('light');
+    document.documentElement.classList.toggle('light', theme === 'day');
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const isLight = theme === 'light';
+  const isDay = theme === 'day';
 
   return (
     <button
       type="button"
-      onClick={() => setTheme(isLight ? 'dark' : 'light')}
-      aria-label={isLight ? 'Switch to night mode' : 'Switch to day mode'}
-      className={`relative flex h-11 w-11 sm:w-44 items-center overflow-hidden rounded-full border-2 transition-colors duration-300 ${
-        isLight ? 'border-gray-300 bg-gray-200' : 'border-white/25 bg-black'
-      }`}
+      role="switch"
+      aria-checked={isDay}
+      aria-label="Toggle day / night mode"
+      onClick={() => setTheme(isDay ? 'night' : 'day')}
+      className={`relative h-10 w-36 md:w-40 rounded-full transition-colors duration-300 ${
+        isDay ? 'bg-gray-200 border border-gray-300' : 'bg-black border border-black'
+      } shadow-md shadow-black/20`}
     >
-      {/* Sliding circle with sun/moon */}
+      {/* Sliding knob */}
       <span
-        className={`absolute z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black shadow-md transition-all duration-300 ${
-          isLight ? 'right-1.5' : 'left-1.5'
+        className={`absolute top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-white transition-all duration-300 ${
+          isDay ? 'right-1 border border-gray-400' : 'left-1 border border-black'
         }`}
       >
-        {isLight ? <Sun size={18} /> : <Moon size={18} />}
+        {isDay ? (
+          <Sun size={16} strokeWidth={1.75} className="text-black" aria-hidden="true" />
+        ) : (
+          <Moon size={16} strokeWidth={1.75} className="text-black" aria-hidden="true" />
+        )}
       </span>
 
-      {/* Sparkle next to moon in night mode (like your reference) */}
-      {!isLight && (
-        <Sparkles size={12} className="absolute left-10 top-2 text-white" aria-hidden="true" />
-      )}
-
-      {/* Label */}
+      {/* Swapping label */}
       <span
-        className={`hidden sm:block text-xs font-bold tracking-widest transition-all duration-300 ${
-          isLight ? 'ml-4 mr-10 text-black' : 'ml-14 text-white'
+        className={`absolute top-1/2 -translate-y-1/2 font-sans font-bold uppercase tracking-[0.12em] text-[10px] md:text-[11px] transition-all duration-300 ${
+          isDay ? 'left-4 text-black' : 'right-4 text-white'
         }`}
       >
-        {isLight ? 'DAY MODE' : 'NIGHT MODE'}
+        {isDay ? 'Day Mode' : 'Night Mode'}
       </span>
     </button>
   );

@@ -17,9 +17,9 @@ function offlineAnswer(message) {
     const p = portfolioContext.projects[1];
     return `${p.name} is a ${p.label}: ${p.summary} Code: ${p.github}`;
   }
-  if (has('ecommerce', 'e-commerce', 'malltun', 'shop', 'store')) {
-    const p = portfolioContext.projects[2];
-    return `${p.name} is a ${p.label}: ${p.summary} Live: ${p.live}`;
+    if (has('meridian', 'clinic', 'appointment', 'medical', 'healthcare')) {
+    const p = portfolioContext.projects.find((proj) => proj.name.includes('Meridian'));
+    if (p) return `${p.name} is Abdullah's ${p.label}: ${p.summary} Code: ${p.github}`;
   }
   if (has('cybit', 'dashboard')) {
     const p = portfolioContext.projects[3];

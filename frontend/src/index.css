@@ -236,3 +236,8 @@ p, li {
 .always-dark .text-white\/80 {
   color: white !important;
 }
+
+/* Headings and their descriptions read as one unit, site-wide */
+h2 + p {
+  margin-top: 1rem !important;
+}
